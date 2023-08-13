@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>url参数解析</title>
+</head>
+
+<body>
+    <script>
+        //get参数解析
+        function parseURL(str) {
+            let reg = /.*\?([^#]*)/.exec(str);
+            let params = reg[1];
+            params = params.split('&');
+
+            let obj = {};
+            params.forEach(ele => {
+                if (/=/.test(ele)) {
+                    let [key, value] = ele.split('=');
+                    value = decodeURIComponent(value);
+                    obj[key] = obj[key] ? [].concat(obj[key], value) : value;
+                } else {
+                    obj['param'] = obj['param'] ? [].concat(obj['param'], ele) : ele;
+                }
+            });
+            return obj;
+        }
+
+        let test = parseURL('https://www.baidu.com/s?tn=15007414_9_dg&wd=github');
+        console.log(test);
+    </script>
+</body>
+
+</html>
