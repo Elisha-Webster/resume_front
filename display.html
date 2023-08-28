@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>垂直居中</title>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="current">
+            <h3>块级排版上下文（block formatting context）的排版规则：</h3>
+            <ul>
+                <li>盒子从上到下摆放</li>
+                <li>垂直 margin 合并</li>
+                <li>BFC 内盒子的 margin 不会与外面的合并BFC</li>
+                <li>不会和浮动元素重叠</li>
+            </ul>
+        </div>
+    </div>
+    <style>
+        .parent {
+            position: fixed;
+            width: 800px;
+            height: 800px;
+            background-color: aquamarine;
+        }
+
+        .current {
+            position: absolute;
+            width: 520px;
+            height: 520px;
+            background-color: rgb(117, 117, 141);
+            top:0;
+            left:0;
+            right: 0;
+            bottom: 0;
+            margin: auto;   
+        }
+    </style>
+</body>
+
+</html>
